@@ -1,14 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+
+var Airtable = require("airtable");
+var base = new Airtable({ apiKey: "keyqmKcScZuBH8W1u" }).base(
+  "app6Dk6VNBF2hNU9s"
+);
+
+const table = base("Attendence");
+const createRecord = async (fields) => {
+  console.log(fields);
+  const createRecord = await table.create([
+    {
+      fields: fields,
+    },
+  ]);
+  console.log(createRecord);
+};
 export const AttendaceReg = () => {
+  const [name, setName] = useState();
+  const [attendance, setAttendance] = useState();
+  const [angi, setAngi] = useState();
+  const [date, setDate] = useState();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(name, attendance);
+  };
   return (
     <div>
       <div className="main-container">
-        <input placeholder="Username"></input>
-        <input placeholder="mobile"></input>
-        <input placeholder="class"></input>
-        <input placeholder="Teacher"></input>
-        <button>register</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <select
+            value={attendance}
+            onChange={(e) => setAttendance(e.target.value)}
+          >
+            <option selected value="ирсэн">
+              ирсэн
+            </option>
+            <option value="тасалсан">тасалсан</option>
+            <option value="чөлөөтэй">чөлөөтэй</option>
+            <option value="хоцорсон">хоцорсон</option>
+            <option value="онлайн">онлайн</option>
+          </select>
+          <input
+            placeholder="class"
+            value={angi}
+            onChange={(e) => setAngi(e.target.value)}
+          ></input>
+          <input
+            placeholder="Date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          ></input>
+          <input
+            type="submit"
+            value="Submit"
+            onClick={() => createRecord({ name, attendance, angi, date })}
+          />
+        </form>
       </div>
     </div>
   );
