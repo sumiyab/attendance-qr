@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 var Airtable = require("airtable");
-var base = new Airtable({ apiKey: "keyqmKcScZuBH8W1u" }).base(
+var base = new Airtable({ apiKey: process.env.REACT_APP_NOT_API_KEY }).base(
   "app6Dk6VNBF2hNU9s"
 );
 
