@@ -46,13 +46,17 @@ export const AttendaceReg = () => {
             <option value="хоцорсон">хоцорсон</option>
             <option value="онлайн">онлайн</option>
           </select>
-          <input
-            placeholder="class"
-            value={angi}
-            onChange={(e) => setAngi(e.target.value)}
-          ></input>
+          <select value={angi} onChange={(e) => setAngi(e.target.value)}>
+            <option selected value="HOP1A">
+              HOP1A
+            </option>
+            <option value="HOP1B">HOP1B</option>
+            <option value="HOP1C">HOP1C</option>
+          </select>
+
           <input
             placeholder="Date"
+            type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           ></input>
