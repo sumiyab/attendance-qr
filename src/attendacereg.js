@@ -8,13 +8,11 @@ var base = new Airtable({ apiKey: process.env.REACT_APP_NOT_API_KEY }).base(
 
 const table = base("Attendence");
 const createRecord = async (fields) => {
-  console.log(fields);
   const createRecord = await table.create([
     {
       fields: fields,
     },
   ]);
-  console.log(createRecord);
 };
 export const AttendaceReg = () => {
   const [name, setName] = useState();
