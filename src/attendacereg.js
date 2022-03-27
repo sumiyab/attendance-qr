@@ -26,6 +26,7 @@ export const AttendaceReg = () => {
   return (
     <div>
       <div className="main-container">
+        <h1>Attendance Register</h1>
         <form onSubmit={handleSubmit}>
           <input
             placeholder="Username"
