@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { AttendaceReg } from "./attendacereg";
+import { AttendaceReg } from "./Attendacereg";
 
 function App() {
   return (
     <div className="App">
-      <AttendaceReg></AttendaceReg>
+      <AttendaceReg />
     </div>
   );
 }
