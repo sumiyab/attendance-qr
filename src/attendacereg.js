@@ -17,62 +17,42 @@ const createRecord = async (fields) => {
 };
 export const AttendaceReg = () => {
   const [name, setName] = useState();
-  const [attendance, setAttendance] = useState();
   const [angi, setAngi] = useState();
-  const [date, setDate] = useState();
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(name, attendance);
+    console.log(name);
     // setSuccess(true);
     Swal.fire("Good job!", `${name} are successfully registered`, "success");
   };
 
   return (
-    <div>
-      <div className="main-container">
-        <h1>Attendance Register</h1>
-        {!success && (
-          <form onSubmit={handleSubmit}>
-            <input
-              placeholder="Username"
-              onChange={(e) => setName(e.target.value)}
-            ></input>
-            <select
-              value={attendance}
-              onChange={(e) => setAttendance(e.target.value)}
-            >
-              <option selected value="ирсэн">
-                ирсэн
-              </option>
-              <option value="тасалсан">тасалсан</option>
-              <option value="чөлөөтэй">чөлөөтэй</option>
-              <option value="хоцорсон">хоцорсон</option>
-              <option value="онлайн">онлайн</option>
-            </select>
-            <select value={angi} onChange={(e) => setAngi(e.target.value)}>
-              <option selected value="HOP1A">
-                HOP1A
-              </option>
-              <option value="HOP1B">HOP1B</option>
-              <option value="HOP1C">HOP1C</option>
-            </select>
+    <div className="main-container">
+      <h1>Attendance Register</h1>
+      {!success && (
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Username"
+            onChange={(e) => setName(e.target.value)}
+          ></input>
 
-            <input
-              placeholder="Date"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            ></input>
-            <input
-              type="submit"
-              value="Submit"
-              onClick={() => createRecord({ name, attendance, angi, date })}
-            />
-          </form>
-        )}
-      </div>
+          <select value={angi} onChange={(e) => setAngi(e.target.value)}>
+            <option selected value="HOP1A">
+              HOP1A
+            </option>
+            <option value="HOP1B">HOP1B</option>
+            <option value="HOP1C">HOP1C</option>
+          </select>
+
+          <input
+            type="submit"
+            className="input"
+            value="Submit"
+            onClick={() => createRecord({ name, angi })}
+          />
+        </form>
+      )}
     </div>
   );
 };

@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import App from "./App";
+import { AttendaceReg } from "./attendacereg";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AttendaceReg />
   </React.StrictMode>,
   document.getElementById("root")
 );

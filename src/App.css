@@ -1,30 +1,59 @@
 input {
   margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: black;
+}
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+  font-size: larger;
+}
+body {
+  background-color: #00dcf0;
+}
+h1 {
+  text-align: center;
+}
+.input {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+}
+.main-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: #f9f9f9;
+  padding: 25px;
+  margin-top: 50px;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 10px;
-}
 form {
   display: flex;
   flex-direction: column;
 }
 select {
   margin-top: 10px;
+  padding: 10px;
 }
 @media only screen and (max-width: 600px) {
   body {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 15px;
   }
   .main-container {
     display: flex;
     flex-direction: column;
     width: 90%;
+    margin: 0 auto;
   }
   form {
     display: flex;

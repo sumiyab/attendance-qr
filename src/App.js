@@ -1,9 +1,9 @@
 import "./App.css";
-import { AttendaceReg } from "./Attendacereg";
+import { AttendaceReg } from "./attendacereg";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <AttendaceReg />
     </div>
   );
