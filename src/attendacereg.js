@@ -8,6 +8,7 @@ var base = new Airtable({ apiKey: process.env.REACT_APP_NOT_API_KEY }).base(
 );
 
 const table = base("Attendence");
+
 const createRecord = async (fields) => {
   const createRecord = await table.create([
     {
@@ -25,6 +26,11 @@ export const AttendaceReg = () => {
     console.log(name);
     // setSuccess(true);
     Swal.fire("Good job!", `${name} are successfully registered`, "success");
+  };
+  const save = () => {
+    const date = new Date().toLocaleDateString();
+
+    createRecord({ name, attendance: "ирсэн", angi, date });
   };
 
   return (
@@ -49,7 +55,7 @@ export const AttendaceReg = () => {
             type="submit"
             className="input"
             value="Submit"
-            onClick={() => createRecord({ name, angi })}
+            onClick={save}
           />
         </form>
       )}
